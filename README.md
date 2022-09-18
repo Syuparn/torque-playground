@@ -6,7 +6,16 @@ docker image to run sample [Torque language](https://v8.dev/docs/torque) source 
 
 You can run Torque soruce code `src/main.tq` in docker container by following steps.
 
-## docker-compose
+## use docker image
+
+```bash
+$ docker pull ghcr.io/syuparn/torque-playground:latest
+$ docker run -it --rm -v $(pwd)/src:/root/src ghcr.io/syuparn/torque-playground:latest bash
+root@40f3a14bd005:~# ./build-torque src/main.tq
+root@40f3a14bd005:~# ./run-torque
+```
+
+## use docker-compose (build yourself)
 
 ```bash
 $ docker-compose up -d --build
