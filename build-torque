@@ -1,0 +1,23 @@
+#!/bin/bash
+
+#############################################################
+# this shell builds torque file
+#############################################################
+
+V8_PATH='/v8/v8'
+
+original_pwd=$(pwd)
+tq_file_path="${original_pwd}/$1"
+cd ${V8_PATH}
+
+# HACK: insert source code to test/torque/test-torque.tq
+cat test/torque/test-torque.original.tq | sed "/namespace test {/a $(cat ${tq_file_path} | sed -z 's/\n/\\n/g')" > test/torque/test-torque.tq
+
+# enable alias
+shopt -s expand_aliases
+
+# (re)build testing binary 'cctest' to bundle current test-torque.tq file
+alias gm=${V8_PATH}/tools/dev/gm.py
+gm x64.debug.tests
+
+cd ${original_pwd}

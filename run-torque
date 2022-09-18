@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#############################################################
+# this shell runs torque file
+#############################################################
+
+V8_PATH='/v8/v8'
+
+original_pwd=$(pwd)
+cd ${V8_PATH}
+
+# execute 'Main' function in test-torque.tq by running test for Main
+${V8_PATH}/out/x64.debug/cctest test-torque/Main
+
+cd ${original_pwd}

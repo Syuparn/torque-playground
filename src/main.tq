@@ -1,0 +1,27 @@
+/*
+    Hack: Main is called by test case cctest/test-torque/Main so that this can be used as an entry point
+          (no semantic meaning in Torque language),
+          You can run anything by editing this function!
+*/
+@export
+macro Main(): void {
+  for (let i: int32 = 1; i <= 30; i++) {
+    FizzBuzz(i);
+  }
+}
+
+macro FizzBuzz(n: int32): void {
+  if (n % 15 == 0) {
+    Print("fizzbuzz");
+    return;
+  }
+  if (n % 3 == 0) {
+    Print("fizz");
+    return;
+  }
+  if (n % 5 == 0) {
+    Print("buzz");
+    return;
+  }
+  Print(Convert<Smi>(n));
+}
