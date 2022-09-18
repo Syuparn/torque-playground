@@ -11,6 +11,6 @@ You can run Torque soruce code `src/main.tq` in docker container by following st
 ```bash
 $ docker-compose up -d --build
 $ docker-compose exec torque bash
-# ./build-torque src/main.tq
-# ./run-torque
+root@62fc1449971c:~# ./build-torque src/main.tq
+root@62fc1449971c:~# ./run-torque
 ```
